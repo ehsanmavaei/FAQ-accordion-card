@@ -1,0 +1,80 @@
+@use "../util" as *;
+@use "../globals" as *;
+
+body {
+  background: linear-gradient($soft-violet, $sft-blue);
+
+}
+
+.faqcontainer {
+  padding: 90px 30px;
+
+  .faqcard {
+    background-color: #fff;
+
+    position: relative;
+
+    @include border-radius;
+    .illustration {
+      position: absolute;
+      top: 5px;
+      left: 50%;
+      width: 150px;
+      height: 150px;
+      margin-top: -75px;
+      margin-left: -75px;
+    }
+    #shadow {
+      margin-top: -460px;
+    }
+    #box {
+      display: none;
+    }
+    .accordion {
+      padding: 80px 20px;
+      h1 {
+        font-size: rem(25);
+        font-weight: 700;
+        text-align: center;
+        padding-bottom: 30px;
+      }
+      .faq {
+        padding: 10px 0;
+        border-bottom: 1px solid $light-grayish-blue;
+        cursor: pointer;
+      }
+      .question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        h3 {
+          font-size: 0.6rem;
+        }
+        img{
+        transition: all 0.5s ease-in-out;
+
+        }
+      }
+      .answer {
+        max-height: 0px;
+        overflow: hidden;
+        transition: max-height 1s linear;
+        p {
+          padding-top: 1rem;
+          line-height: 1.6;
+          font-size: rem(8);
+        }
+      }
+      .faq.active .answer {
+        max-height: 300px;
+      }
+      .faq.active .bold {
+       font-weight: 700;
+      }
+      .faq.active .svg {
+        transform: rotate(180deg);
+      }
+      
+    }
+  }
+}
